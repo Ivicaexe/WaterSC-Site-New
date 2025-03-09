@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Water S.C. - Partner za očuvanje vode i održiva rešenja.">
+    <meta name="keywords" content="očuvanje vode, održiva rešenja, ušteda vode, detekcija curenja">
+    <meta name="author" content="Water S.C. Team">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💧</text></svg>" type="image/svg+xml">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Water S.C. - Partner za očuvanje vode">
+    <meta property="og:description" content="Inovativna i održiva rešenja za očuvanje vode.">
+    <meta property="og:image" content="https://i.imgur.com/XSG1YAE.jpg">
+    <meta property="og:url" content="https://watersc.com">
+    <meta property="og:type" content="website">
+
+    <title>Water S.C. - Partner za očuvanje vode</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0077cc',
+                        secondary: '#005fa3',
+                        accent: '#d4af37',
+                        light: '#f0f8ff',
+                        dark: '#181818'
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+        
+        // Postavljanje tamnog režima prema preferencama korisnika
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    
+    <style>
+        .company-logo {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            margin: 0 auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .company-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .process-arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background-color: #d4af37;
+            transform: translateY(-50%);
+        }
+        
+        @media (max-width: 768px) {
+            .process-arrow::after {
+                display: none;
+            }
+        }
+        
+        .footer-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 4rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .teren-section {
+            margin: 50px auto;
+            padding: 30px;
+            max-width: 900px;
+            text-align: center;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dark .teren-section {
+            background-color: #2d3748;
+        }
+        
+        .teren-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .teren-content h2 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .dark .teren-content h2 {
+            color: #e2e8f0;
+        }
+        
+        .teren-content p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .dark .teren-content p {
+            color: #cbd5e0;
+        }
+        
+        /* Hover efekti */
+        .teren-box:hover .teren-content h2 {
+            color: #0077cc;
+            transform: scale(1.05);
+        }
+        
+        .teren-box:hover .teren-content p {
+            color: #222;
+            transform: translateY(-3px);
+        }
+        
+        .dark .teren-box:hover .teren-content p {
+            color: #f7fafc;
+        }
+        
+        .site-footer {
+            background-color: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+        
+        .teren-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .teren-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Animacije za loading stanja */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .loading-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .rotate-arrows {
+            animation: rotate 15s linear infinite;
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-xl font-bold text-primary dark:text-blue-400">
+                        <span class="mr-2">💧</span>Water S.C.
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-primary dark:hover:text-blue-400 transition duration-300">Početna</a>
+                    <a href="#about" class="hover:text-primary dark:hover:text-blue-400 transition duration-300">O nama</a>
+                    <a href="#services" class="hover:text-primary dark:hover:text-blue-400 transition duration-300">Usluge</a>
+                    <a href="#how-it-works" class="hover:text-primary dark:hover:text-blue-400 transition duration-300">Kako radimo</a>
+                    <a href="#teren" class="hover:text-primary dark:hover:text-blue-400 transition duration-300">Teren</a>
+                    <a href="#contact" class="hover:text-primary dark:hover:text-blue-400 transition duration-300">Kontakt</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 dark:text-gray-300" aria-label="Otvori meni">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-md">
+            <div class="px-4 py-2 space-y-3">
+                <a href="#home" class="block hover:text-primary dark:hover:text-blue-400 transition duration-300">Početna</a>
+                <a href="#about" class="block hover:text-primary dark:hover:text-blue-400 transition duration-300">O nama</a>
+                <a href="#services" class="block hover:text-primary dark:hover:text-blue-400 transition duration-300">Usluge</a>
+                <a href="#how-it-works" class="block hover:text-primary dark:hover:text-blue-400 transition duration-300">Kako radimo</a>
+                <a href="#teren" class="block hover:text-primary dark:hover:text-blue-400 transition duration-300">Teren</a>
+                <a href="#contact" class="block hover:text-primary dark:hover:text-blue-400 transition duration-300">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8">
+                <!-- Logo kompanije na osnovu dostavljene slike -->
+                <div class="company-logo mx-auto">
+                    <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Globus -->
+                        <circle cx="250" cy="140" r="120" fill="#0077cc" />
+                        
+                        <!-- Kontinenti -->
+                        <path d="M180,90 Q210,80 240,90 Q260,115 290,95 Q330,80 350,120 Q330,170 280,190 Q220,200 190,170 Q170,130 180,90" 
+                            fill="#8ccef0" />
+                        <path d="M170,130 Q190,110 200,140 Q210,170 240,160 Q270,140 290,160 Q300,180 270,200 Q240,210 210,190 Q180,170 170,130" 
+                            fill="#60b5e8" />
+                              
+                        <!-- Zlatne strelice oko globusa -->
+                        <g class="rotate-arrows">
+                            <path d="M250,10 C360,10 450,100 450,210 L470,210 L450,240 L430,210 L450,210 C450,110 360,20 250,20 Z" 
+                                  fill="#d4af37" />
+                            <path d="M250,270 C140,270 50,180 50,70 L30,70 L50,40 L70,70 L50,70 C50,170 140,260 250,260 Z" 
+                                  fill="#d4af37" />
+                        </g>
+                        
+                        <!-- Tekst -->
+                        <text x="250" y="300" text-anchor="middle" fill="#FFFFFF" 
+                              font-family="Arial" font-weight="bold" font-size="48">Water S.C.</text>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary dark:text-blue-400">Dobrodošli u Water S.C.</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Partner za očuvanje vode kroz inovativna i održiva rešenja</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg transition duration-300 text-lg font-medium">Kontaktirajte nas</a>
+                <a href="#services" class="bg-white dark:bg-gray-800 text-primary dark:text-blue-400 border-2 border-primary dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 px-6 py-3 rounded-lg transition duration-300 text-lg font-medium">Naše usluge</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary dark:text-blue-400 mb-2">O nama</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">Naša misija je očuvanje globalnih izvora vode kroz inovativna rešenja i odgovorno upravljanje.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Naša priča</h3>
+                    <p class="mb-4">Water S.C. je osnovan s jasnim ciljem - da transformiše način na koji industrije i zajednice pristupaju upravljanju vodnim resursima. Naš fokus je na održivosti, inovaciji i odgovornom korišćenju vode.</p>
+                    <p class="mb-4">Verujemo da kroz edukaciju, implementaciju naprednih sistema i saradnju sa zajednicama možemo napraviti značajnu razliku u očuvanju najvažnijeg resursa na planeti.</p>
+                    <h3 class="text-2xl font-semibold mb-4 mt-8">Naši ciljevi</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Edukacija organizacija i zajednica o odgovornom korišćenju vode</li>
+                        <li>Implementacija inovativnih sistema za uštedu vode i detekciju curenja</li>
+                        <li>Razvoj održivih rešenja prilagođenih specifičnim potrebama klijenata</li>
+                        <li>Smanjenje globalnog vodnog otiska kroz proaktivne mere očuvanja</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 dark:bg-gray-800 p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-center">Naše vrednosti</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="bg-primary dark:bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold mb-2">Inovacija</h4>
+                            <p>Kontinuirano tragamo za novim i boljim načinima očuvanja vode</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-primary dark:bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold mb-2">Održivost</h4>
+                            <p>Sva naša rešenja su dugoročno održiva za planetu i poslovanje</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-primary dark:bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold mb-2">Partnerstvo</h4>
+                            <p>Sarađujemo sa našim klijentima kao partneri u misiji očuvanja vode</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-primary dark:bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold mb-2">Integritet</h4>
+                            <p>Poslujemo sa najvišim standardima etičke i profesionalne prakse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-blue-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary dark:text-blue-400 mb-2">Naše usluge</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">Pružamo sveobuhvatna rešenja za upravljanje vodnim resursima, prilagođena specifičnim potrebama naših klijenata.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                    <div class="bg-primary dark:bg-blue-600 h-2"></div>
+                    <div class="p-6">
+                        <div class="bg-blue-100 dark:bg-gray-700 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-primary dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Konsultacije za uštedu vode</h3>
+                        <p class="mb-4">Stručni saveti za optimizaciju potrošnje vode u vašem poslovanju ili zajednici.</p>
+                        <ul class="list-disc pl-5 mb-4 text-sm space-y-1">
+                            <li>Analiza trenutne potrošnje vode</li>
+                            <li>Identifikacija prilika za uštedu</li>
+                            <li>Razvoj strategija za smanjenje potrošnje</li>
+                            <li>Ekonomska analiza i povrat investicije</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                    <div class="bg-primary dark:bg-blue-600 h-2"></div>
+                    <div class="p-6">
+                        <div class="bg-blue-100 dark:bg-gray-700 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-primary dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Sistemi za detekciju curenja</h3>
+                        <p class="mb-4">Implementacija naprednih sistema za rano otkrivanje i prevenciju gubitaka vode.</p>
+                        <ul class="list-disc pl-5 mb-4 text-sm space-y-1">
+                            <li>Instalacija senzora za detekciju curenja</li>
+                            <li>Sistemi za monitoring u realnom vremenu</li>
+                            <li>Automatsko obaveštavanje o anomalijama</li>
+                            <li>Redovno održavanje i kalibracija</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                    <div class="bg-primary dark:bg-blue-600 h-2"></div>
+                    <div class="p-6">
+                        <div class="bg-blue-100 dark:bg-gray-700 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-primary dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Edukativni programi</h3>
+                        <p class="mb-4">Podizanje svesti i edukacija o značaju očuvanja vode i održivom upravljanju.</p>
+                        <ul class="list-disc pl-5 mb-4 text-sm space-y-1">
+                            <li>Treninzi za zaposlene i menadžment</li>
+                            <li>Obrazovni programi za zajednice</li>
+                            <li>Materijali za podizanje svesti</li>
+                            <li>Radionice o najboljim praksama</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary dark:text-blue-400 mb-2">Kako radimo</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">Naš proces je jednostavan, transparentan i fokusiran na postizanje konkretnih rezultata za naše klijente.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="relative text-center">
+                    <div class="bg-blue-100 dark:bg-gray-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary dark:text-blue-400">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Analiza</h3>
+                    <p>Detaljna procena trenutne potrošnje vode i identifikacija prilika za poboljšanje.</p>
+                    <div class="hidden md:block process-arrow"></div>
+                </div>
+                <div class="relative text-center">
+                    <div class="bg-blue-100 dark:bg-gray-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary dark:text-blue-400">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Predlog rešenja</h3>
+                    <p>Razvoj prilagođenih rešenja koja odgovaraju vašim specifičnim potrebama i ciljevima.</p>
+                    <div class="hidden md:block process-arrow"></div>
+                </div>
+                <div class="relative text-center">
+                    <div class="bg-blue-100 dark:bg-gray-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary dark:text-blue-400">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Implementacija</h3>
+                    <p>Stručna implementacija odabranih rešenja sa minimalnim prekidom vašeg poslovanja.</p>
+                    <div class="hidden md:block process-arrow"></div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 dark:bg-gray-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary dark:text-blue-400">4</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Podrška i nadzor</h3>
+                    <p>Kontinuirana podrška i praćenje rezultata kako bi se obezbedili dugoročni pozitivni efekti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teren Section -->
+    <section id="teren" class="teren-section">
+        <div class="teren-box">
+            <div class="teren-content">
+                <h2>Naša stručnost na terenu</h2>
+                <p>
+                    Terenski rad je ključna komponenta našeg pristupa očuvanju resursa. Kroz pažljivo planiranje i stručnost,
+                    ostvarujemo dugoročne rezultate za poboljšanje vodovodnih sistema. Vaša voda je na sigurnom sa nama.
+                </p>
+                
+                <!-- Dodata slika automobila na terenu koju je korisnik poslao -->
+                <div class="mt-6">
+                    <img src="images/WaterS.Cvozilo.jpg" alt="Water S.C. terensko vozilo"/>
+                    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">
+                        Naša terenska vozila opremljena za brzo i efikasno rešavanje problema na terenu
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary dark:bg-blue-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Spremni ste da unapredite upravljanje vodnim resursima?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Kontaktirajte nas danas i saznajte kako Water S.C. može pomoći vašem poslovanju ili zajednici.</p>
+            <a href="#contact" class="bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-lg transition duration-300 text-lg font-medium inline-block">Započnite danas</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary dark:text-blue-400 mb-2">Kontaktirajte nas</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">Imate pitanje ili ste spremni da započnete saradnju? Kontaktirajte nas i odgovorićemo vam u najkraćem mogućem roku.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 font-medium">Ime i prezime</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 font-medium">Email adresa</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Naslov</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Poruka</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-500" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg transition duration-300 text-lg font-medium">Pošalji poruku</button>
+                        </div>
+                        <div id="form-message" class="mt-4 text-center hidden"></div>
+                    </form>
+                </div>
+                <div class="bg-blue-50 dark:bg-gray-800 p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-6">Kontakt informacije</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <svg class="w-6 h-6 text-primary dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300">rs.watersc@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <svg class="w-6 h-6 text-primary dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Telefon</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+381 65 9055000</p>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">Pratite nas</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition duration-300">
+                                    <!-- Facebook icon -->
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500 transition duration-300">
+                                    <!-- Twitter icon -->
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="bg-blue-700 text-white p-2 rounded-full hover:bg-blue-800 transition duration-300">
+                                    <!-- LinkedIn icon -->
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition duration-300">
+                                    <!-- Instagram icon -->
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section with background -->
+    <section class="footer-section">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold text-white mb-4">Zajedno možemo sačuvati najvažniji resurs na Zemlji</h2>
+                <p class="text-blue-100 mb-6">Pridružite nam se u misiji održivog upravljanja vodom</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Copyright Footer -->
+    <footer class="site-footer">
+        <p>© 2025 <strong>Water S.C.</strong> All rights reserved.</p>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading status
+            formMessage.textContent = 'Šaljem poruku...';
+            formMessage.classList.remove('hidden', 'text-red-500', 'text-green-500');
+            formMessage.classList.add('text-gray-500', 'loading-pulse');
+            
+            // Simulate form submission (since we can't use actual backend)
+            setTimeout(() => {
+                formMessage.classList.remove('loading-pulse', 'text-gray-500');
+                formMessage.classList.add('text-green-500');
+                formMessage.textContent = 'Hvala na poruci! Kontaktiraćemo vas uskoro.';
+                contactForm.reset();
+            }, 1500);
+        });
+    </script>
+<div id="popup-logo" style="display:none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; background-color: rgba(255, 255, 255, 0.9); border: 2px solid #ddd; border-radius: 10px; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    <video autoplay loop muted playsinline style="max-width: 200px; max-height: 200px;">
+        <source src="logo.mp4" type="video/mp4">
+        Vaš pretraživač ne podržava video format.
+    </video>
+    <button id="close-button" style="margin-top: 10px; background-color: #0078D4; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Zatvori</button>
+</div>
+<script>
+
+</script>
+
+</body>
+
+</html>
+
+</div>
+
+</body>
+
+</html>
+
